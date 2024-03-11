@@ -1,0 +1,16 @@
+
+
+.input-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:2rem;
+    background: yellow;
+    width: 20%;
+    height:12rem;
+    left:40%;
+    margin-top:  15%;
+    position: relative;
+
+}

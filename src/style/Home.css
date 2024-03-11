@@ -1,0 +1,21 @@
+.home{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 2rem;
+
+    padding: 20px 90px;
+    width: 85%;
+}
+
+.home-second{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5rem;
+}
+.home-button{
+    gap: 1rem;
+
+}
