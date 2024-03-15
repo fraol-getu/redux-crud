@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
 export const fetchData = createAsyncThunk("fetchData", async () => {
-const data = await axios.get('https://my-json-server.typicode.com/fraol-getu/demo/users')
+const data = await axios.get('http://localhost:3030/users/')
  return data.data
 })
 const userSlice = createSlice({

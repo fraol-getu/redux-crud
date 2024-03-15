@@ -9,11 +9,8 @@ const Home = () => {
   const data = useSelector((state)=> state.user)
  useEffect(() => {
     dispatch(fetchData())
-
  }, [])
  
- 
-  console.log(data)
      
  return (
  <div className='home'>
@@ -37,7 +34,7 @@ const Home = () => {
     <p>{user.email}</p>
      <div className='home-button'>
      <Link to='/read'> <button>read</button></Link>
-     <Link to='/update'> <button>update</button></Link>
+     <Link to={`/update/${user.id}`}> <button>update</button></Link>
      <Link to='/delete'> <button>Delate</button></Link>
      </div>
    </div>

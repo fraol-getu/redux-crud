@@ -1,22 +1,12 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+ import axios from "axios";
+import { useParams } from "react-router-dom"
 
-// const navigate = useNavigate()
-
-export const handleSubmit  = createAsyncThunk("handleSubmit", async (event) => {
-    const navigate = useNavigate()
-    event.preventDefault()
-     await axios.post("https://my-json-server.typicode.com/fraol-getu/demo/users", {name:'', email:''})
- .then(res => {
-    alert("data posted sucessfully")
-        navigate('/')
-        }
-        )
-        .catch(err => console.log(err))
-          
-
-})
+export const handleSubmit  = createAsyncThunk("handleSubmit", async (values) => {
+    const response = await axios.post('http://localhost:3030/users', values)
+return response.data
+  
+}) 
 
 const createrSlice = createSlice({
     name: "create",
@@ -24,11 +14,51 @@ const createrSlice = createSlice({
 
         value : {name:'', email:''},
     },
-    reducers: {
-        setCreate: (state, action) => {
-            state.value = action.payload
-        }
-    }
-})
-export const {setCreate} = createSlice.actions
-export default createrSlice.reducer
+
+ })
+
+ export default createrSlice.reducer
+
+          
+
+
+
+
+
+
+
+// export const handleSubmit = createAsyncThunk(
+//     "handleSubmit",
+//     async (values) => {
+//       try {
+//         const response = await axios.post(
+//           "https://json-wiov.onrender.com/users/",
+//           values // Pass form values to the server
+//         );
+  
+//         // Handle successful response (replace with your desired logic)
+//         return response.data; // Assuming the response contains data
+  
+//       } catch (err) {
+//         console.error("Error posting data:", err);
+//         // Handle errors appropriately (e.g., display an error message to the user)
+//         throw err; // Re-throw the error to signal failure
+//       }
+//     }
+//   );
+//   const createrSlice = createSlice({
+//     name: "create",
+//     initialState: {
+//       value: {}, // Set an empty object for initial state
+//       loading: false, // Add a loading state property (optional)
+//       error: null,    // Add an error state property (optional)
+//     },
+//     reducers: {
+//       setCreate: (state, action) => {
+//         state.value = action.payload; // Update the value property
+//       },
+//     },
+    
+//   });  
+//   export const {setCreate} = createrSlice.actions
+// export default createrSlice.reducer
