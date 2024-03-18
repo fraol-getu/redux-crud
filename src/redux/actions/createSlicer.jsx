@@ -7,6 +7,15 @@ export const handleSubmit  = createAsyncThunk("handleSubmit", async (values) => 
 return response.data
   
 }) 
+export const handleDelete = createAsyncThunk("handleDelete", async (values) => {
+     
+    const  deletedata = await axios.delete('http://localhost:3030/users/' + values)
+      console.log(values)
+    console.log(deletedata, "jjjjj")
+    return deletedata.data
+})
+
+
 
 const createrSlice = createSlice({
     name: "create",

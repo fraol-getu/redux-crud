@@ -7,7 +7,7 @@ export const handleUpdate = createAsyncThunk(
   "handleUpdate",
   async ({inputData, id}) => {
     // Access ID from the extra argument passed from the component
-    
+     
     try {
       const update = await axios.put('http://localhost:3030/users/' + id, inputData);
       console.log(update.data, "i'fffff")

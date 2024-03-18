@@ -5,6 +5,12 @@ export const fetchData = createAsyncThunk("fetchData", async () => {
 const data = await axios.get('http://localhost:3030/users/')
  return data.data
 })
+
+export const ReadData = createAsyncThunk("fetchData", async ({id}) => {
+    const read = await axios.get('http://localhost:3030/users/' + id)
+     return read.data
+    })
+
 const userSlice = createSlice({
     name: "user",
     initialState : {
